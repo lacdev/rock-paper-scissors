@@ -76,7 +76,7 @@ const checkForWin = () =>  {
     }
 }
 
-const buttonContainer = document.querySelector('.buttons-container')
+const buttonsContainer = document.querySelector('.buttons-container')
   
 const handleClick = (event) => {
     playerSelection = event.target.value;
@@ -84,5 +84,5 @@ const handleClick = (event) => {
     checkForWin();
 }
   
-buttonContainer.addEventListener("click", handleClick)
+buttonsContainer.addEventListener("click", handleClick)
   
