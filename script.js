@@ -10,36 +10,36 @@ userCounter.textContent = `User Score is: ${userScore}`
 const computerCounter = document.querySelector('#computerCounter')
 computerCounter.textContent = `Computer Score is: ${computerScore}`
 
-function computerPlay(){
+const computerPlay = () =>{
     const answers = ['rock', 'paper', 'scissors']
     let randomAnswer = answers[Math.floor(Math.random()*answers.length)]
     return randomAnswer
 }
 
-function updateCounters () {
+const updateCounters = () => {
     results.textContent = `You selected ${ playerSelection } and the computer selected ${ computerSelection }.`
     computerCounter.textContent = `Computer Score is: ${computerScore}`
     userCounter.textContent = `User Score is: ${userScore}`
 }
 
-function resetGame () {
+const resetGame = () => {
     userScore = 0
     computerScore = 0
     computerCounter.textContent = `Computer Score is: ${computerScore}`
     userCounter.textContent = `User Score is: ${userScore}`
 }
 
-function cpuWins () {
+const cpuWins = () => {
     computerScore += 1
     updateCounters()
 }
 
-function userWins () {
+const userWins = () => {
     userScore += 1
     updateCounters()
 }
 
-function playRound() {
+const playRound = () => {
     computerSelection = computerPlay()
 
     if (playerSelection === computerSelection) {
@@ -59,21 +59,30 @@ function playRound() {
         }
 }
 
-const buttons = document.querySelectorAll('button')
+const checkForWin = () =>  {
+    if (userScore === 5) {
+      results.textContent = `Congratulations you won the match. Final Score is: 
+      User: ${userScore} 
+      Computer: ${computerScore}. 
+      Click on your selection again, to play another match.`
+      resetGame()
+    }
+    if (computerScore === 5) {
+      results.textContent = `Aww man you lost the duel :( 
+          Final Score is: User: ${userScore} 
+          Computer: ${computerScore}. 
+          Click on your selection again, to play another match.`
+      resetGame()
+    }
+}
 
-buttons.forEach((button) => {
-    button.addEventListener('click', (event)=> {
-        playerSelection = event.target.id  
-        playRound()
-        if (userScore === 5) {
-            results.textContent = `Congratulations you won the match. Final Score is: User: ${userScore} Computer: ${computerScore}. Click on your selection again, to play another match.`
-            resetGame()
-        }
-        if (computerScore === 5) {
-            results.textContent = `Aww man you lost the duel :( Final Score is: User: ${userScore} Computer: ${computerScore}. Click on your selection again, to play another match.`
-            resetGame()
-        }
-
-    })
-})
-
+const buttonContainer = document.querySelector('.buttons-container')
+  
+const handleClick = (event) => {
+    playerSelection = event.target.value;
+    playRound();
+    checkForWin();
+}
+  
+buttonContainer.addEventListener("click", handleClick)
+  
