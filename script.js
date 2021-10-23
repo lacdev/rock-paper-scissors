@@ -4,7 +4,7 @@ let playerSelection = ""
 let computerSelection = ""
 
 const results = document.querySelector('#results')
-results.textContent = `Let's play a game of Rock, Paper, Scissors against the computer.`
+results.textContent = `Let's play a game of Rock, Paper, Scissors against the computer. Best of 5 Wins, good luck!`
 const userCounter = document.querySelector('#userCounter')
 userCounter.textContent = `User Score is: ${userScore}`
 const computerCounter = document.querySelector('#computerCounter')
@@ -18,6 +18,13 @@ function computerPlay(){
 
 function updateCounters () {
     results.textContent = `You selected ${ playerSelection } and the computer selected ${ computerSelection }.`
+    computerCounter.textContent = `Computer Score is: ${computerScore}`
+    userCounter.textContent = `User Score is: ${userScore}`
+}
+
+function resetGame () {
+    userScore = 0
+    computerScore = 0
     computerCounter.textContent = `Computer Score is: ${computerScore}`
     userCounter.textContent = `User Score is: ${userScore}`
 }
@@ -58,18 +65,15 @@ buttons.forEach((button) => {
     button.addEventListener('click', (event)=> {
         playerSelection = event.target.id  
         playRound()
-
         if (userScore === 5) {
-            results.textContent = `Congratulations you won the match`
-            userScore = 0
-            computerScore = 0
+            results.textContent = `Congratulations you won the match. Final Score is: User: ${userScore} Computer: ${computerScore}. Click on your selection again, to play another match.`
+            resetGame()
+        }
+        if (computerScore === 5) {
+            results.textContent = `Aww man you lost the duel :( Final Score is: User: ${userScore} Computer: ${computerScore}. Click on your selection again, to play another match.`
+            resetGame()
         }
 
-        if (computerScore === 5) {
-            results.textContent = `Aww man you lost the duel :(`
-            userScore = 0
-            computerScore = 0
-        }
     })
 })
 
