@@ -4,17 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <h1>Rock Paper Scissors Exercise The Odin Project 2021</h1>
-    <h3>Game can only be played on the console.</h3>
-    <p>Instructions:</p>
-    <ul>
-        <li>Open the console in your browser by clicking on F12 in your keyboard</li>
-        <li>Read the console instructions on how to play</li>
-        <li>Have fun!</li>
-    </ul>
+    <div class="buttons-container">
+        <button value='rock' id="rock" class="selection">Rock</button>
+        <button value='paper' id="paper" class="selection">Paper</button>
+        <button value='scissors' id="scissors" class="selection">Scissors</button>
+    </div>
+    <div class='container'>
+        <div id="userCounter" class="userCounter"></div>
+        <div id="computerCounter" class="computerCounter"></div>
+        <div id="results" class="results"></div>
+    </div>
+    <footer class="footer">Created with &#128150 for The Odin Project</footer>
     <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Gemunu+Libre&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gemunu+Libre&family=Ubuntu&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-flow: column;
+  background-color: #efefef;
+  font-family: "Ubuntu", sans-serif;
+
+}
+
+.container {
+    display: flex;
+    flex-direction: column ;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+}
+
+.userCounter, .computerCounter {
+    font-weight: 900;
+    font-size: 38px;
+    margin: 16px 0px;
+    text-align: center;
+}
+
+.results {
+    font-weight: 500;
+    font-size: 24px;
+    min-height: 24vh;
+    margin-top: 24px;
+    text-align: center;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 32px 0;
+}
+
+.selection {
+    border-radius: 16px;
+    padding: 8px 16px;
+    border: 2px solid black;
+    font-weight: 700;
+    margin: 0 16px;
+    cursor: pointer;
+    transition: 0.2s ease-in;
+    color: white;
+    background-color: black
+}
+
+.selection:hover {
+    color: black;
+    background-color: white ;
+}
+
+.winner {
+    color: #157A15;
+    font-weight: 500;
+    font-size: 24px;
+    min-height: 24vh;
+    margin-top: 24px;
+    text-align: center;
+}
+
+.loser {
+    color: #C91818;
+    font-weight: 500;
+    font-size: 24px;
+    min-height: 24vh;
+    margin-top: 24px;
+    text-align: center;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
