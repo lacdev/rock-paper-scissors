@@ -4,19 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <div class='container'>
-		<div class="buttons-container">
-			<button value='rock' id="rock">Rock</button>
-            <button value='paper' id="paper">Paper</button>
-            <button value='scissors' id="scissors">Scissors</button>
-        </div>
-        <div id="results"></div>
-        <div id="userCounter"></div>
-        <div id="computerCounter"></div>
+    <div class="buttons-container">
+        <button value='rock' id="rock" class="selection">Rock</button>
+        <button value='paper' id="paper" class="selection">Paper</button>
+        <button value='scissors' id="scissors" class="selection">Scissors</button>
     </div>
+    <div class='container'>
+        <div id="userCounter" class="userCounter"></div>
+        <div id="computerCounter" class="computerCounter"></div>
+        <div id="results" class="results"></div>
+    </div>
+    <footer class="footer">Created with &#128150 for The Odin Project</footer>
     <script src="script.js"></script>
 </body>
 </html>

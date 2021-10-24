@@ -29,6 +29,12 @@ const resetGame = () => {
     userCounter.textContent = `User Score is: ${userScore}`
 }
 
+const resetColors = () => {
+    if (userScore === 0 && computerScore === 0) {
+        results.classList.remove('winner', 'loser');
+    }
+}
+
 const cpuWins = () => {
     computerScore += 1
     updateCounters()
@@ -56,30 +62,36 @@ const playRound = () => {
         playerSelection === 'rock' && computerSelection === 'paper' || 
         playerSelection === 'scissors' && computerSelection === 'rock') {
         cpuWins()
-        }
+    }
 }
 
 const checkForWin = () =>  {
+
     if (userScore === 5) {
       results.textContent = `Congratulations you won the match. Final Score is: 
       User: ${userScore} 
       Computer: ${computerScore}. 
       Click on your selection again, to play another match.`
+      results.classList.add('winner');
       resetGame()
     }
+
     if (computerScore === 5) {
-      results.textContent = `Aww man you lost the duel :( 
-          Final Score is: User: ${userScore} 
-          Computer: ${computerScore}. 
-          Click on your selection again, to play another match.`
+        results.textContent = `Aww man you lost the duel :( 
+        Final Score is: User: ${userScore} 
+        Computer: ${computerScore}. 
+        Click on your selection again, to play another match.`
+        results.classList.add('loser');
       resetGame()
     }
+
 }
 
 const buttonsContainer = document.querySelector('.buttons-container')
   
 const handleClick = (event) => {
     playerSelection = event.target.value;
+    resetColors()
     playRound();
     checkForWin();
 }
